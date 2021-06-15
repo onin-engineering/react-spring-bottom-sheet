@@ -68,6 +68,7 @@ export const BottomSheet = React.forwardRef<
     onSpringCancel,
     onSpringEnd,
     reserveScrollBarGap = blocking,
+    disableDrag = false,
     ...props
   },
   forwardRef
@@ -445,18 +446,22 @@ export const BottomSheet = React.forwardRef<
     [send]
   )
 
-  const handleDrag = ({
-    args: [{ closeOnTap = false } = {}] = [],
-    cancel,
-    direction: [, direction],
-    down,
-    first,
-    last,
-    memo = spring.y.getValue() as number,
-    movement: [, _my],
-    tap,
-    velocity,
-  }) => {
+  const handleDrag = (state) => {
+    const {
+      args: [{ closeOnTap = false } = {}] = [],
+      cancel,
+      direction: [, direction],
+      down,
+      first,
+      last,
+      memo = spring.y.getValue() as number,
+      movement: [, _my],
+      tap,
+      velocity,
+    } = state
+
+    if (disableDrag) return memo
+
     const my = _my * -1
 
     // Cancel the drag operation if the canDrag state changed
