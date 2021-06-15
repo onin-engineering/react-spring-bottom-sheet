@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { EventTypes, Handler } from 'react-use-gesture/dist/types';
+import { Handler } from 'react-use-gesture/dist/types';
 export declare type SnapPointProps = {
     /**
      * The height of the sticky header, if there's one
@@ -135,7 +135,7 @@ export declare type Props = {
     /**
      * callback that fires on drag
      */
-    onDrag?: (state: Handler<'drag', EventTypes['drag']>) => {};
+    onDrag?: (state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>) => {};
 } & Omit<React.PropsWithoutRef<JSX.IntrinsicElements['div']>, 'children'>;
 export interface RefHandles {
     /**

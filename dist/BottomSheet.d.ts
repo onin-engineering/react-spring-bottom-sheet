@@ -1,4 +1,5 @@
 import React from 'react';
+import { Handler } from 'react-use-gesture/dist/types';
 import type { defaultSnapProps, RefHandles } from './types';
 export declare const BottomSheet: React.ForwardRefExoticComponent<{
     initialState: 'OPEN' | 'CLOSED';
@@ -23,5 +24,5 @@ export declare const BottomSheet: React.ForwardRefExoticComponent<{
     reserveScrollBarGap?: boolean;
     skipInitialTransition?: boolean;
     disableDrag?: boolean;
-    onDrag?: (state: import("react-use-gesture/dist/types").Handler<"drag", React.PointerEvent<Element> | PointerEvent>) => {};
+    onDrag?: (state: Handler<"drag", React.PointerEvent<Element> | PointerEvent>) => {};
 } & Omit<Pick<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof React.HTMLAttributes<HTMLDivElement>>, "children"> & React.RefAttributes<RefHandles>>;

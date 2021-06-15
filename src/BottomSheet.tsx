@@ -14,6 +14,7 @@ import React, {
 } from 'react'
 import { animated, config } from 'react-spring'
 import { rubberbandIfOutOfBounds, useDrag } from 'react-use-gesture'
+import { Handler } from 'react-use-gesture/dist/types'
 import {
   useAriaHider,
   useFocusTrap,
@@ -69,6 +70,9 @@ export const BottomSheet = React.forwardRef<
     onSpringEnd,
     reserveScrollBarGap = blocking,
     disableDrag = false,
+    onDrag = (
+      state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>
+    ) => {},
     ...props
   },
   forwardRef
@@ -461,6 +465,7 @@ export const BottomSheet = React.forwardRef<
     } = state
 
     if (disableDrag) return memo
+    onDrag(state)
 
     const my = _my * -1
 
