@@ -135,7 +135,7 @@ export declare type Props = {
     /**
      * callback that fires on drag
      */
-    onDrag?: (state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>) => {};
+    onDrag?: (state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>) => void;
 } & Omit<React.PropsWithoutRef<JSX.IntrinsicElements['div']>, 'children'>;
 export interface RefHandles {
     /**

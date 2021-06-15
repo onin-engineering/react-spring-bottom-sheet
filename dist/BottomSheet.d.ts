@@ -24,5 +24,5 @@ export declare const BottomSheet: React.ForwardRefExoticComponent<{
     reserveScrollBarGap?: boolean;
     skipInitialTransition?: boolean;
     disableDrag?: boolean;
-    onDrag?: (state: Handler<"drag", React.PointerEvent<Element> | PointerEvent>) => {};
+    onDrag?: (state: Handler<"drag", React.PointerEvent<Element> | PointerEvent>) => void;
 } & Omit<Pick<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof React.HTMLAttributes<HTMLDivElement>>, "children"> & React.RefAttributes<RefHandles>>;

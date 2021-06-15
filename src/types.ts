@@ -153,7 +153,7 @@ export type Props = {
    */
   onDrag?: (
     state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>
-  ) => {}
+  ) => void
 } & Omit<React.PropsWithoutRef<JSX.IntrinsicElements['div']>, 'children'>
 
 export interface RefHandles {
