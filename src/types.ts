@@ -1,3 +1,5 @@
+import { EventTypes, Handler } from 'react-use-gesture/dist/types'
+
 export type SnapPointProps = {
   /**
    * The height of the sticky header, if there's one
@@ -146,6 +148,10 @@ export type Props = {
    * disable dragging on header and footer
    */
   disableDrag?: boolean
+  /**
+   * callback that fires on drag
+   */
+  onDrag?: (state: Handler<'drag', EventTypes['drag']>) => {}
 } & Omit<React.PropsWithoutRef<JSX.IntrinsicElements['div']>, 'children'>
 
 export interface RefHandles {
