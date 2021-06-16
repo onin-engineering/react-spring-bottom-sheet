@@ -464,7 +464,7 @@ export const BottomSheet = React.forwardRef<
       velocity,
     } = state
 
-    if (disableDrag) return memo
+    if (disableDrag && !tap) return memo
     onDrag(state)
 
     const my = _my * -1
