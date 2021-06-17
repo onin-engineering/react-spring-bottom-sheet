@@ -22,5 +22,5 @@ export declare const BottomSheet: React.ForwardRefExoticComponent<{
     skipInitialTransition?: boolean;
     disableDrag?: boolean;
     onDrag?: (state: import("react-use-gesture/dist/types").Handler<"drag", React.PointerEvent<Element> | PointerEvent>) => void;
-    tapToClose?: boolean;
+    showBackdrop?: boolean;
 } & Omit<Pick<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof React.HTMLAttributes<HTMLDivElement>>, "children"> & React.RefAttributes<RefHandles>>;

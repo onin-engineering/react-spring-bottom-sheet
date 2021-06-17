@@ -73,7 +73,9 @@ export const BottomSheet = React.forwardRef<
     onDrag = (
       state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>
     ) => {},
-    tapToClose = true,
+    showBackdrop = blocking,
+    // onClickBackdrop = ,
+    // tapToClose = true,
     ...props
   },
   forwardRef
@@ -119,13 +121,13 @@ export const BottomSheet = React.forwardRef<
   })
   const ariaHiderRef = useAriaHider({
     targetRef: containerRef,
-    enabled: ready && tapToClose,
+    enabled: ready && blocking,
   })
   const focusTrapRef = useFocusTrap({
     targetRef: containerRef,
     fallbackRef: overlayRef,
     initialFocusRef,
-    enabled: ready && tapToClose,
+    enabled: ready && blocking,
   })
 
   const { minSnap, maxSnap, maxHeight, findSnap } = useSnapPoints({
@@ -600,13 +602,15 @@ export const BottomSheet = React.forwardRef<
       }}
     >
       {sibling}
-      {blocking && (
+      {(showBackdrop !== undefined && showBackdrop !== null
+        ? showBackdrop
+        : blocking) && (
         <div
           // This component needs to be placed outside bottom-sheet, as bottom-sheet uses transform and thus creates a new context
           // that clips this element to the container, not allowing it to cover the full page.
           key="backdrop"
           data-rsbs-backdrop
-          {...bind({ closeOnTap: tapToClose })}
+          {...bind({ closeOnTap: true })}
         />
       )}
       <div
