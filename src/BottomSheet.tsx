@@ -119,13 +119,13 @@ export const BottomSheet = React.forwardRef<
   })
   const ariaHiderRef = useAriaHider({
     targetRef: containerRef,
-    enabled: ready && blocking,
+    enabled: ready && tapToClose,
   })
   const focusTrapRef = useFocusTrap({
     targetRef: containerRef,
     fallbackRef: overlayRef,
     initialFocusRef,
-    enabled: ready && blocking,
+    enabled: ready && tapToClose,
   })
 
   const { minSnap, maxSnap, maxHeight, findSnap } = useSnapPoints({
