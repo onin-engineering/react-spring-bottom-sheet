@@ -73,6 +73,7 @@ export const BottomSheet = React.forwardRef<
     onDrag = (
       state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>
     ) => {},
+    tapToClose = true,
     ...props
   },
   forwardRef
@@ -605,7 +606,7 @@ export const BottomSheet = React.forwardRef<
           // that clips this element to the container, not allowing it to cover the full page.
           key="backdrop"
           data-rsbs-backdrop
-          {...bind({ closeOnTap: true })}
+          {...bind({ closeOnTap: tapToClose })}
         />
       )}
       <div

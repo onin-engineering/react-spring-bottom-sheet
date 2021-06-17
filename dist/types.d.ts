@@ -136,6 +136,10 @@ export declare type Props = {
      * callback that fires on drag
      */
     onDrag?: (state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>) => void;
+    /**
+     * defaults to true. This allows you to show backdrop without tap to close behavior.
+     */
+    tapToClose?: boolean;
 } & Omit<React.PropsWithoutRef<JSX.IntrinsicElements['div']>, 'children'>;
 export interface RefHandles {
     /**
