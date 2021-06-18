@@ -26,4 +26,5 @@ export declare const BottomSheet: React.ForwardRefExoticComponent<{
     disableDrag?: boolean;
     onDrag?: (state: Handler<"drag", React.PointerEvent<Element> | PointerEvent>) => void;
     showBackdrop?: boolean;
+    springConfig?: import("react-spring").SpringConfig;
 } & Omit<Pick<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof React.HTMLAttributes<HTMLDivElement>>, "children"> & React.RefAttributes<RefHandles>>;

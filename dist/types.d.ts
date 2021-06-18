@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { SpringConfig } from 'react-spring';
 import { Handler } from 'react-use-gesture/dist/types';
 export declare type SnapPointProps = {
     /**
@@ -140,6 +141,10 @@ export declare type Props = {
      * defaults to true. This allows you to show backdrop without swallowing events outside of the current drawer.
      */
     showBackdrop?: boolean;
+    /**
+     * spring config // @see https://springs.pomb.us
+     */
+    springConfig?: SpringConfig;
 } & Omit<React.PropsWithoutRef<JSX.IntrinsicElements['div']>, 'children'>;
 export interface RefHandles {
     /**

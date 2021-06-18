@@ -36,8 +36,6 @@ import type {
 } from './types'
 import { debugging } from './utils'
 
-const { tension, friction } = config.default
-
 // @TODO implement AbortController to deal with race conditions
 
 // @TODO rename to SpringBottomSheet and allow userland to import it directly, for those who want maximum control and minimal bundlesize
@@ -74,8 +72,7 @@ export const BottomSheet = React.forwardRef<
       state: Handler<'drag', React.PointerEvent<Element> | PointerEvent>
     ) => {},
     showBackdrop = blocking,
-    // onClickBackdrop = ,
-    // tapToClose = true,
+    springConfig = config.default,
     ...props
   },
   forwardRef
@@ -160,6 +157,7 @@ export const BottomSheet = React.forwardRef<
     defaultSnapRef.current = findSnap(getDefaultSnap)
   }, [findSnap, getDefaultSnap, maxHeight, maxSnap, minSnap])
 
+  const { friction } = springConfig
   // New utility for using events safely
   const asyncSet = useCallback<typeof set>(
     // @ts-expect-error
@@ -169,11 +167,8 @@ export const BottomSheet = React.forwardRef<
           ...opts,
           config: {
             velocity,
-            ...config,
+            ...springConfig,
             // @see https://springs.pomb.us
-            mass: 1,
-            // "stiffness"
-            tension,
             // "damping"
             friction: Math.max(
               friction,
